@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  overflow-x: hidden;
+}
+
 .App {
   text-align: center;
 }

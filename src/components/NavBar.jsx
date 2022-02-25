@@ -1,5 +1,6 @@
 import React from 'react'
-
+import logo from '../img/logo.png'
+import CartWidget from './CartWidget'
 
 // HOVER CATEGORIAS
 document.addEventListener('DOMcontentloader', () => {
@@ -24,19 +25,22 @@ const hoverLi = () => {
 const NavBar = () => {
 
     return (
-        <nav>
-            <img clasName='w-24' src='./logo.png' />
-            <ul className='flex gap-6 justify-center'>
-                <li className='text-orange-300 mx-4 hover:w-max hover:text-orange-400 text-lg'><a className='hover:bg-neutral-500 hover:rounded-lg p-3 transition ease-in-out duration-200' href=''>Sobre BirraEdits</a></li>
-                <li  className='text-orange-300 mx-4 hover:w-max text-lg'><a id="hoverCategories" className='hover:text-orange-400 hover:bg-neutral-500 hover:rounded-lg p-3 transition ease-in-out duration-200' href=''>Categorias</a>
-                    <ul className='hover:overflow-visible relative mt-3 flex flex-col gap-4 text-center'>
-                        <li><a className='hidden categories'>Birras negras</a></li>
-                        <li><a className='hidden categories'>Birras rubias</a></li>
-                        <li><a className='hidden categories'>Birras rojas</a></li>
+        <nav className='flex justify-evenly mx-auto flex-grow flex-row w-full h-max'>
+            <div className='w-max'>
+            <img className='w-24 h-20' src={ logo } />
+            </div>
+            <ul className='flex w-9/12 justify-center items-center gap-4'>
+                <li className='items-center flex text-orange-300 w-max h-full hover:text-orange-400 text-md md:text-lg lg:text-xl font-semibold'><a href='##' className='hover:bg-neutral-500 hover:rounded-lg p-3 transition ease-in-out duration-200'>Sobre BirraEdits</a></li>
+                <li className='items-center flex text-orange-300 w-max h-full hover:text-orange-400 text-md md:text-lg lg:text-xl font-semibold'><a href='##' id="hoverCategories" className='hover:text-orange-400 hover:bg-neutral-500 hover:rounded-lg p-3 transition ease-in-out duration-200'>Categorias</a>
+                    <ul className='focus:visible hidden relative mt-3 flex-col gap-4 text-center'>
+                        <li><a href='##' className=' categories'>Birras negras</a></li>
+                        <li><a href='##' className=' categories'>Birras rubias</a></li>
+                        <li><a href='##' className=' categories'>Birras rojas</a></li>
                     </ul>
                 </li>
-                <li className='text-orange-300 mx-4 hover:w-max hover:text-orange-400 text-lg'><a className='hover:bg-neutral-500 hover:rounded-lg p-3 transition ease-in-out duration-200' href=''>Haz tu consulta</a></li>
+                <li className='items-center flex text-orange-300 w-max h-full hover:text-orange-400 text-md md:text-lg lg:text-xl font-semibold'><a href='##' className='hover:bg-neutral-500 hover:rounded-lg p-3 transition ease-in-out duration-200' >Haz tu consulta</a></li>
             </ul>
+            <CartWidget />
         </nav>
     )
 }
