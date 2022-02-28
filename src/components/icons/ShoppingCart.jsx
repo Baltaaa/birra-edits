@@ -3,7 +3,7 @@ import React from 'react'
 const shoppingCart = () => {
     return (
         <svg
-        className='bg-white w-max rounded-full p-1'
+        className=''
             viewBox="0 0 24 24"
             fill="currentColor"
             height="2em"

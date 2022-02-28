@@ -1,16 +1,15 @@
 import './App.css';
 import NavBar from './components/NavBar';
-// import CartWidget from './components/CartWidget';
-import ItemListContainer from './components/ItemListContainer';
-
+import ItemListContainer from './components/aboutProds/ItemListContainer';
+import DataFetched from './components/aboutProds/dataFetched/DataFetched.jsx';
+                        
 
 function App() {
   
   return (
-    <div className="App bg-slate-900 h-screen w-screen">
+    <div className="App bg-black h-screen w-screen overflow-y-hidden">
       <NavBar />
-      <ItemListContainer greeting='Bienvenido/a! Elegi tu birra favorita!' />
-
+      <ItemListContainer />
     </div>
   );
 }
