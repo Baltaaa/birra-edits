@@ -2,10 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (max-width: 768px) {
+*::-webkit-scrollbar{
+  display: none;
+}
+}
+
 *{
   overflow-x: hidden;
 }
+*::-webkit-scrollbar{
+  background-color: rgb(82 82 82);
+  width:10px;
+}
 
+*::-webkit-scrollbar-thumb{
+  border-radius:1em;
+  background-color: darkgrey;
+}
 .App {
   text-align: center;
 }

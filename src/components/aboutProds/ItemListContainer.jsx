@@ -1,28 +1,46 @@
-import React from 'react'
-// import DataFetched from './dataFetched/DataFetched';
-// import productos from './dataFetched/DataFetched';
-import ItemCount from './ItemCount';
-import birra from '../../img/birra.jpg'
+import React, { useState, useEffect } from 'react';
+import ItemList from './ItemList'
+import  getData  from '../../helpers/getData';
+import { productos } from '../../data/productos';
+import loader from '../../img/loader.svg'
 
-const ItemListContainer = (props) => {
+
+
+const ItemListContainer = () => {
+    const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(true)
+        getData(productos)
+            .then(res => {
+                setItems(res)
+            })
+            .catch(err => console.warn(err))
+            .finally(() => {
+                console.log('complete')
+                setLoading(false)
+            })
+    }, [])
+
 
     return (
-        <div classNameName='h-screen grid place-content-center'>
+        <>
 
-            <div className="flex items-center justify-center ">
 
-                <card className="w-1/3 bg-gray-500 border border-gray-100 rounded-lg text-center hover:shadow-lg align-center">
+            {
+                loading
+                    ?
+                    <div className='grid place-content-center fixed w-screen h-screen'>
+                    <img src={loader}  alt='Cargando...' />
+                    </div>
+                    :
+                   <ItemList items={items}/>
+            
+                   
+            }
 
-                    <img src={birra} className="rounded-t-lg" />
-                    <p className="font-bold pt-3 pb-2"> Angry Pitbull IPA </p>
-
-                    <p className="px-10 py-2 mb-5 text-gray-500"> </p>
-
-                    <ItemCount />
-                </card>
-
-            </div>
-        </div>
+        </>
     )
 }
 
