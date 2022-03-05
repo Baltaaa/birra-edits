@@ -7,7 +7,7 @@ export const productos = [
         "Envase": "Botella de 75cl",
         "Precio": "3,90€",
         "img": "../../img/damminneditRubia.png",
-        "stock": 8,
+        "stock": 3,
         "categorias": [
             "Rubia"
 
@@ -21,7 +21,7 @@ export const productos = [
         "Envase": "Botella de 33 cl.",
         "Precio": "1€",
         "img": "../../img/alhambraRubiaRoja.png",
-        "stock": 8,
+        "stock": 2,
         "categorias": [
             "Rubia",
             "Roja"
@@ -78,7 +78,7 @@ export const productos = [
         "Envase": "Botella de 33cl",
         "Precio": "1,10€",
         "img": "../../img/volldamRoja.png",
-        "stock": 8,
+        "stock": 5,
         "categorias": [
             "Roja"
 
@@ -134,7 +134,7 @@ export const productos = [
         "Envase": "Botella de 33cl",
         "Precio": "1,50€",
         "img": "../../img/barbanteRoja.png",
-        "stock": 8,
+        "stock": 2,
         "categorias": [
             "Roja"
 
