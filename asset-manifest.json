@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/birra-edits/static/css/main.46922de7.css",
+    "main.js": "/birra-edits/static/js/main.9cbcdf37.js",
+    "static/js/787.1efaf8c7.chunk.js": "/birra-edits/static/js/787.1efaf8c7.chunk.js",
+    "static/media/logo.png": "/birra-edits/static/media/logo.342a527138ebe2ddb53d.png",
+    "index.html": "/birra-edits/index.html",
+    "static/media/loader.svg": "/birra-edits/static/media/loader.4f65b4347c2f549c01cf050536f7cb24.svg",
+    "main.46922de7.css.map": "/birra-edits/static/css/main.46922de7.css.map",
+    "main.9cbcdf37.js.map": "/birra-edits/static/js/main.9cbcdf37.js.map",
+    "787.1efaf8c7.chunk.js.map": "/birra-edits/static/js/787.1efaf8c7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.46922de7.css",
+    "static/js/main.9cbcdf37.js"
+  ]
+}
