@@ -1,3 +1,14 @@
+import damminneditRubia from "../img/damminneditRubia.png";
+import alhambraRubiaRoja from "../img/alhambraRubiaRoja.png"
+import mahouRubia from "../img/mahouRubia.png"
+import sanmiguelRubia from "../img/sanmiguelRubia.png"
+import volldamRoja from "../img/volldamRoja.png"
+import ambarEspecial from "../img/ambarEspecial.png"
+import moritzNegra from "../img/moritzNegra.png"
+import moritzRoja from "../img/moritzRoja.png"
+import barbanteRoja from "../img/barbanteRoja.png"
+
+
 export const productos = [
     {
         "id": 1,
@@ -6,7 +17,7 @@ export const productos = [
         "Graduación": "4,8º",
         "Envase": "Botella de 75cl",
         "Precio": "3,90€",
-        "img": "../../img/damminneditRubia.png",
+        "img": damminneditRubia,
         "stock": 3,
         "categorias": [
             "Rubia"
@@ -20,7 +31,7 @@ export const productos = [
         "Graduación": "6,8º",
         "Envase": "Botella de 33 cl.",
         "Precio": "1€",
-        "img": "../../img/alhambraRubiaRoja.png",
+        "img": alhambraRubiaRoja,
         "stock": 2,
         "categorias": [
             "Rubia",
@@ -35,7 +46,7 @@ export const productos = [
         "Graduación": "5,5º",
         "Envase": "Pack de 6 botellines de 25 cl.",
         "Precio": "2,70€",
-        "img": "../../img/mahouRubia.png",
+        "img": mahouRubia,
         "stock": 8,
         "categorias": [
             "Rubia",
@@ -49,7 +60,7 @@ export const productos = [
         "Graduación": "4,2º",
         "Envase": "Botella de 33 cl.",
         "Precio": "0,80€",
-        "img": "../../img/sanmiguelRubia.png",
+        "img": sanmiguelRubia,
         "stock": 8,
         "categorias": [
             "Rubia"
@@ -77,7 +88,7 @@ export const productos = [
         "Graduación": "7,2º",
         "Envase": "Botella de 33cl",
         "Precio": "1,10€",
-        "img": "../../img/volldamRoja.png",
+        "img": volldamRoja,
         "stock": 5,
         "categorias": [
             "Roja"
@@ -91,7 +102,7 @@ export const productos = [
         "Graduación": "5,2º",
         "Envase": "Botella de 33cl",
         "Precio": "0,90€",
-        "img": "../../img/ambarEspecial.png",
+        "img": ambarEspecial,
         "stock": 8,
         "categorias": [
             "Rubia"
@@ -105,7 +116,7 @@ export const productos = [
         "Graduación": "5,4º",
         "Envase": "Botella de 33cl",
         "Precio": "1,20€",
-        "img": "../../img/moritzRoja.png",
+        "img": moritzRoja,
         "stock": 8,
         "categorias": [
             "Roja"
@@ -119,7 +130,7 @@ export const productos = [
         "Graduación": "8,4º",
         "Envase": "Botella de 33cl",
         "Precio": "1,20€",
-        "img": "../../img/moritzNegra.png",
+        "img": moritzNegra,
         "stock": 8,
         "categorias": [
             "Negra"
@@ -133,7 +144,7 @@ export const productos = [
         "Graduación": "5º",
         "Envase": "Botella de 33cl",
         "Precio": "1,50€",
-        "img": "../../img/barbanteRoja.png",
+        "img": barbanteRoja,
         "stock": 2,
         "categorias": [
             "Roja"

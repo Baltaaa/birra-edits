@@ -2,6 +2,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/aboutProds/ItemListContainer';
 import Cart from './components/cart/Cart';
+import Footer from './components/Footer';
                         
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
       <NavBar />
       <ItemListContainer />
       <Cart />
-      
+
+      <Footer />
     </div>
   );
 }
