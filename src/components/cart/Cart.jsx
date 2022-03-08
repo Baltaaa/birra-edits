@@ -3,7 +3,6 @@ import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import getData from '../../helpers/getData';
 import { productos } from '../../data/productos';
-import loader from '../../img/loader.svg'
 import CartWidget from '../CartWidget';
 import $ from 'jquery'
 import ButtonDetail from '../aboutProds/ButtonDetail';
@@ -14,7 +13,7 @@ export default function Cart() {
     const [open, setOpen] = useState(false)
     // data
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(false);
+
 
     useEffect(() => {
         getData(productos)
@@ -28,7 +27,7 @@ export default function Cart() {
     }, [])
 
     $('body').on('scroll', function () {
-        $('#cart').addClass('bg-white')
+        $('#cart').addClass('bg-white rounded-full')
     });
 
 
@@ -39,12 +38,7 @@ export default function Cart() {
             <div className='absolute right-5 top-3'>
                 <CartWidget onClick={() => $('#cart').slideToggle(setOpen(true))} />
             </div>
-
-            <div className='grid place-content-center fixed w-screen h-screen'>
-                <img src={loader} alt='Cargando...' />
-            </div>
-
-
+            {/* onclick slide */}
             <Transition.Root show={open} as={Fragment}>
                 <Dialog as="div" className="fixed inset-0 overflow-hidden" onClose={setOpen}>
                     <div className="absolute inset-0 overflow-hidden">
@@ -106,7 +100,7 @@ export default function Cart() {
                                                                     <div>
                                                                         <div className="flex justify-between text-base">
                                                                             <h3 className='text-md tracking-tight text-orange-400 hover.font-bold transition ease-linear duration-150 '>
-                                                                                {prods.Nombre} 
+                                                                                {prods.Nombre}
                                                                             </h3>
                                                                             <p className="text-black font-semibold mx-5">{prods.Precio}</p>
                                                                         </div>

@@ -5,6 +5,11 @@ import ButtonDetail from './ButtonDetail';
 
 const Item = ({ Nombre, Descripción, Graduación, Envase, Precio, img, stock, categorias }, {id}) => {
 
+    const onAdd = (cantidad) => {
+        console.log(`Seleccionaste`+cantidad+`productos`)
+    }
+
+
     return (
         <>
             <div className="card h-max sm:w-4/5 items-center md:w-4/5 flex align-middle self-center bg-zinc-200 opacity-70 rounded-sm rounded-b-md mt-32">
@@ -17,7 +22,7 @@ const Item = ({ Nombre, Descripción, Graduación, Envase, Precio, img, stock, c
                     <ButtonDetail />
                     {/* <p className="px-6 py-2 mb-5 text-gray-500 "> {Descripción} </p> */}
                     <p className="font-extrabold p-2 text-md text-gray-700"> {Precio} </p>
-                    <ItemCount key={id} />
+                    <ItemCount key={id} initial={1} stock={stock} onAdd={onAdd} />
                 </div>
             </div>
         </>

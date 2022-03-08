@@ -11,7 +11,6 @@ function App() {
     <div className="App bg-black bg-gradient-to-b from-neutral-600 h-screen w-screen ">
       <NavBar />
       <ItemListContainer />
-      <Cart />
 
       <Footer />
     </div>
