@@ -1,9 +1,16 @@
 import React from 'react'
 
-const ItemDetail = () => {
+
+
+const ItemDetail = ({ item }) => {
+
+
+console.log(item)
   return (
-    <div>
-    </div>
+    <section>
+    <p>{item.Nombre}</p>
+    <img src={item.img} alt={item.Nombre}></img>
+    </section>
   )
 }
 

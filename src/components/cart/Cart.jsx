@@ -2,28 +2,23 @@ import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import getData from '../../helpers/getData';
-import { productos } from '../../data/productos';
 import CartWidget from '../CartWidget';
 import $ from 'jquery'
-import ButtonDetail from '../aboutProds/ButtonDetail';
 
 
 
-export default function Cart() {
+
+export default function Cart({item}) {
     const [open, setOpen] = useState(false)
     // data
     const [products, setProducts] = useState([]);
 
 
     useEffect(() => {
-        getData(productos)
-            .then(res => {
+        getData()
+            .then(res =>
                 setProducts(res)
-            })
-            .catch(err => console.warn(err))
-            .finally(() => {
-                console.log('complete')
-            })
+            )
     }, [])
 
     $('body').on('scroll', function () {
@@ -107,7 +102,15 @@ export default function Cart() {
 
                                                                     </div>
                                                                     <div className="flex flex-1 items-end justify-between text-sm">
-                                                                        <ButtonDetail />
+
+                                                                        {/* <Link to={`/detail/:${item.id}`}> */}
+                                                                            <button className='flex font-xs opacity-50 hover:-translate-y-0.5 text-black py-2 hover:opacity-80 transition duration-300 w-max self-center'>Detalles <span className='flex self-center px-1'><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                                                <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                                                                                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                                                                            </svg>
+                                                                            </span>
+                                                                            </button>
+                                                                        {/* </Link> */}
 
                                                                         <div className="flex">
                                                                             <button type="button" className="font-xs text-black transition duration-200 ease-linear hover:-inset-y-2 hover:text-red-600">

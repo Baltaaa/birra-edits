@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList'
-import  getData  from '../../helpers/getData';
-import { productos } from '../../data/productos';
+import getData from '../../helpers/getData';
 import loader from '../../img/loader.svg'
+import { useParams } from 'react-router-dom';
 
 
 
@@ -10,18 +10,28 @@ const ItemListContainer = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false);
 
+    const { categoriaId } = useParams();
+
     useEffect(() => {
-        setLoading(true)
-        getData(productos)
-            .then(res => {
-                setItems(res)
-            })
-            .catch(err => console.warn(err))
-            .finally(() => {
-                console.log('complete')
-                setLoading(false)
-            })
-    }, [])
+
+        if (categoriaId) {
+            getData()
+                .then(res =>
+                    setItems(res.filter(prod => prod.categorias === categoriaId))
+                )
+
+        } else {
+            setLoading(true)
+            getData()
+                .then(res =>
+                    setItems(res)
+                )
+                .finally(() => {
+                    setLoading(false)
+                })
+        }
+
+    }, [categoriaId])
 
 
     return (
@@ -32,12 +42,12 @@ const ItemListContainer = () => {
                 loading
                     ?
                     <div className='grid place-content-center fixed w-screen h-screen'>
-                    <img src={loader}  alt='Cargando...' />
+                        <img src={loader} alt='Cargando...' />
                     </div>
                     :
-                   <ItemList items={items}/>
-            
-                   
+                    <ItemList items={items} />
+
+
             }
 
         </>
