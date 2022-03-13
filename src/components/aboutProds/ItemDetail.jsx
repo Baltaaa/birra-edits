@@ -2,15 +2,19 @@ import React from 'react'
 
 
 
-const ItemDetail = ({ item }) => {
+const ItemDetail = ({ prod }) => {
 
 
-console.log(item)
   return (
-    <section>
-    <p>{item.Nombre}</p>
-    <img src={item.img} alt={item.Nombre}></img>
+
+      
+    <section className='grid place-content-center'>
+    <p className='text-xl text-white'>{prod.name}</p>
+    <img src={prod.img} alt={prod.name}></img>
+    <p className='text-white'>{prod.description}</p>
+    <b className='text-white'>{prod.package}</b>
     </section>
+      
   )
 }
 

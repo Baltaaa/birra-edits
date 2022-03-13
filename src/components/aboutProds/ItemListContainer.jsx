@@ -10,15 +10,16 @@ const ItemListContainer = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const { categoriaId } = useParams();
+    const { categorysId } = useParams();
 
     useEffect(() => {
-
-        if (categoriaId) {
-            getData()
-                .then(res =>
-                    setItems(res.filter(prod => prod.categorias === categoriaId))
-                )
+        
+        if (categorysId) {
+            setTimeout(
+                getData()
+            .then(res =>
+                setItems(res.filter(prod => prod.categorys === categorysId))
+                ), 100)
 
         } else {
             setLoading(true)
@@ -31,7 +32,7 @@ const ItemListContainer = () => {
                 })
         }
 
-    }, [categoriaId])
+    }, [categorysId])
 
 
     return (

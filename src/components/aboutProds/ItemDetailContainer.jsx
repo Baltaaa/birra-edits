@@ -8,20 +8,19 @@ import { useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(false);
-  const [prod, setProd] = useState({});
+  const [prod, setProd] = useState([]);
 
   const { detailId } = useParams()
 
-  
+
   useEffect(() => {
-    // let detailIdUpdate = `${detailId}`;
     setLoading(true)
     getData()
-      .then(res => setProd(res.find(product => product.id=== detailId)))
+      .then(res => setProd(res.find(product => product.id === '3')))
       .finally(
         setLoading(false)
-      )
-    }, [])
+        )
+      }, [detailId])
 
   return (
     <>
@@ -32,9 +31,8 @@ const ItemDetailContainer = () => {
             <img src={loader} alt='Cargando...' />
           </div>
           :
-          <ItemDetail item={prod} />
+          <ItemDetail prod={prod} />
       }
-          {/* <h1>{prod.Nombre}</h1> */}
     </>
   )
 }

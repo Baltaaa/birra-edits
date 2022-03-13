@@ -21,9 +21,7 @@ export default function Cart({item}) {
             )
     }, [])
 
-    $('body').on('scroll', function () {
-        $('#cart').addClass('bg-white rounded-full')
-    });
+
 
 
 
@@ -65,7 +63,7 @@ export default function Cart({item}) {
                                             <div className="flex items-center justify-evenly">
                                                 <Dialog.Title className="text-lg tracking-widest font-xs uppercase w-4/5 text-gray-900 flex justify-center items-center"> <span className='px-1'><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                                                </svg></span>Carrito</Dialog.Title>
+                                                </svg></span>Cart</Dialog.Title>
                                                 <div className="mx-4 flex h-7 items-center overflow-y-hidden">
                                                     <button
                                                         type="button"
@@ -86,7 +84,7 @@ export default function Cart({item}) {
                                                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-orange-200">
                                                                     <img
                                                                         src={prods.img}
-                                                                        alt={prods.Nombre}
+                                                                        alt={prods.name}
                                                                         className="h-full w-full object-cover object-center"
                                                                     />
                                                                 </div>
@@ -95,16 +93,16 @@ export default function Cart({item}) {
                                                                     <div>
                                                                         <div className="flex justify-between text-base">
                                                                             <h3 className='text-md tracking-tight text-orange-400 hover.font-bold transition ease-linear duration-150 '>
-                                                                                {prods.Nombre}
+                                                                                {prods.name}
                                                                             </h3>
-                                                                            <p className="text-black font-semibold mx-5">{prods.Precio}</p>
+                                                                            <p className="text-black font-semibold mx-5">{prods.price}</p>
                                                                         </div>
 
                                                                     </div>
                                                                     <div className="flex flex-1 items-end justify-between text-sm">
 
                                                                         {/* <Link to={`/detail/:${item.id}`}> */}
-                                                                            <button className='flex font-xs opacity-50 hover:-translate-y-0.5 text-black py-2 hover:opacity-80 transition duration-300 w-max self-center'>Detalles <span className='flex self-center px-1'><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                                            <button className='flex font-xs opacity-50 hover:-translate-y-0.5 text-black py-2 hover:opacity-80 transition duration-300 w-max self-center'>Detail <span className='flex self-center px-1'><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                                                                 <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
                                                                                 <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                                                                             </svg>
@@ -114,7 +112,7 @@ export default function Cart({item}) {
 
                                                                         <div className="flex">
                                                                             <button type="button" className="font-xs text-black transition duration-200 ease-linear hover:-inset-y-2 hover:text-red-600">
-                                                                                Remover
+                                                                                Remove
                                                                             </button>
                                                                         </div>
                                                                     </div>
@@ -136,7 +134,7 @@ export default function Cart({item}) {
                                                 <a
                                                     href="/"
                                                     className="flex items-center justify-center rounded-md border border-transparent bg-black px-6 py-3 text-base font-medium text-white shadow-sm transition duration-300 ease-in hover:opacity-70 hover:text-black  hover:bg-orange-300">
-                                                    <p className='opacity-100 flex'>Comprar<span><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                    <p className='opacity-100 flex'>Checkout<span><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                                                     </svg></span> </p>
                                                 </a>
@@ -147,7 +145,7 @@ export default function Cart({item}) {
                                                     className="font-medium text-black transition duration-120 ease-linear hover:-inset-y-2 hover:text-orange-300"
                                                     onClick={() => setOpen(false)}
                                                 >
-                                                    Seguir comprando<span aria-hidden="true"> &rarr;</span>
+                                                    Continue shopping<span aria-hidden="true"> &rarr;</span>
                                                 </button>
                                             </div>
                                         </div>

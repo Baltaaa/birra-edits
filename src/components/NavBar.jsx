@@ -19,16 +19,16 @@ const NavBar = () => {
                     <a href='/' className='relative inline-block text-gray w-max h-full text-sm md:text-lg lg:text-xl font-mono tracking-widest font-semibold hover:rounded-lg p-2 hover:text-orange-900 transition ease-linear hover:-translate-y-1 duration-800'>Home</a>
                 </div>
                 <ul className='flex inset-x-0 top-20 absolute md:top-0  h-max w-screen mx-auto lg:sticky lg:w-9/12 justify-center items-center ml-0 gap-10'>
-                    <li className='w-max'><NavLink to='/categorys/black' className='tracking-wide hover:-translate-y-1  text-end lg:relative absolute block p-2 font-serif text-md md:text-md hover:rounded-lg hover:text-orange-200 transition ease-in-out duration-400'>Black Beer</NavLink></li>
-                    <li className='w-max'><NavLink to='/categorys/golden' className='tracking-wide hover:-translate-y-1  text-end lg:relative absolute block p-2 font-serif text-md md:text-md hover:rounded-lg hover:text-orange-200 transition ease-in-out duration-400'>Golden Beer</NavLink></li>
-                    <li className='w-max'><NavLink to='/categorys/red' className='tracking-wide hover:-translate-y-1  text-end lg:relative absolute block p-2 font-serif text-md md:text-md hover:rounded-lg hover:text-orange-200 transition ease-in-out duration-400'>Red Beer</NavLink></li>
+                    <NavLink to='/categorys/black' className='tracking-wide hover:-translate-y-1  text-end lg:relative absolute block p-2 font-serif text-md md:text-md hover:rounded-lg hover:text-orange-200 transition ease-in-out duration-400'><li className='w-max'>Black Beer</li></NavLink>
+                    <NavLink to='/categorys/golden' className='tracking-wide hover:-translate-y-1  text-end lg:relative absolute block p-2 font-serif text-md md:text-md hover:rounded-lg hover:text-orange-200 transition ease-in-out duration-400'><li className='w-max'>Golden Beer</li></NavLink>
+                    <NavLink to='/categorys/red' className='tracking-wide hover:-translate-y-1  text-end lg:relative absolute block p-2 font-serif text-md md:text-md hover:rounded-lg hover:text-orange-200 transition ease-in-out duration-400'><li className='w-max'>Red Beer</li></NavLink>
                 </ul>
 
-            {/* <NavLink to='cart'>
+                {/* <NavLink to='cart'>
             </NavLink> */}
                 <Cart />
-            
-            
+
+
             </nav>
         </>
     )
