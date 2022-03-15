@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(false);
-  const [prod, setProd] = useState([]);
+  const [prod, setProd] = useState({});
 
   const { detailId } = useParams()
 
@@ -16,7 +16,7 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     setLoading(true)
     getData()
-      .then(res => setProd(res.find(product => product.id === '3')))
+      .then(res => setProd(res.find(product => product.id === detailId)))
       .finally(
         setLoading(false)
         )
@@ -27,7 +27,7 @@ const ItemDetailContainer = () => {
       {
         loading
           ?
-          <div className='grid place-content-center fixed w-screen h-screen'>
+          <div className='grid place-content-center fixed w-screen h-screen overflow-y-hidden'>
             <img src={loader} alt='Cargando...' />
           </div>
           :

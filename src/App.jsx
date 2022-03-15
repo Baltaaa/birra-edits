@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
 
-    <div className="App bg-black bg-gradient-to-b  h-screen w-screen ">
+    <div className="App bg-black bg-gradient-to-b  h-max w-screen">
       <NavBar />
       
       <Routes >
