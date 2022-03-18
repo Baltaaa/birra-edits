@@ -27,7 +27,7 @@ const ItemDetailContainer = () => {
       {
         loading
           ?
-          <div className='grid place-content-center fixed w-screen h-screen overflow-y-hidden'>
+          <div className='grid place-content-center fixed w-screen h-screen'>
             <img src={loader} alt='Cargando...' />
           </div>
           :
