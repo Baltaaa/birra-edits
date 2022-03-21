@@ -1,26 +1,17 @@
 {
   "files": {
-    "main.css": "/birra-edits/static/css/main.46922de7.css",
-    "main.js": "/birra-edits/static/js/main.dc9bae01.js",
+    "main.css": "/birra-edits/static/css/main.4a9072a1.css",
+    "main.js": "/birra-edits/static/js/main.5eafbe6b.js",
     "static/js/787.1efaf8c7.chunk.js": "/birra-edits/static/js/787.1efaf8c7.chunk.js",
-    "static/media/mahouRubia.png": "/birra-edits/static/media/mahouRubia.0c5fec3f33ee347d5a86.png",
-    "static/media/alhambraRubiaRoja.png": "/birra-edits/static/media/alhambraRubiaRoja.bdcac99803cd2a31f1f2.png",
-    "static/media/volldamRoja.png": "/birra-edits/static/media/volldamRoja.e046e74cee57003f6482.png",
-    "static/media/barbanteRoja.png": "/birra-edits/static/media/barbanteRoja.7cb34e95612794cf2cf9.png",
-    "static/media/moritzRoja.png": "/birra-edits/static/media/moritzRoja.4f866ba302d78489727b.png",
     "static/media/logo.png": "/birra-edits/static/media/logo.342a527138ebe2ddb53d.png",
-    "static/media/ambarEspecial.png": "/birra-edits/static/media/ambarEspecial.c93ac4be58cb954d33a1.png",
-    "static/media/moritzNegra.png": "/birra-edits/static/media/moritzNegra.ed45838bab557a373c32.png",
-    "static/media/sanmiguelRubia.png": "/birra-edits/static/media/sanmiguelRubia.6c132dda80323a5d0e81.png",
-    "static/media/damminneditRubia.png": "/birra-edits/static/media/damminneditRubia.a99c3341ecb647e78c31.png",
     "index.html": "/birra-edits/index.html",
     "static/media/loader.svg": "/birra-edits/static/media/loader.4f65b4347c2f549c01cf050536f7cb24.svg",
-    "main.46922de7.css.map": "/birra-edits/static/css/main.46922de7.css.map",
-    "main.dc9bae01.js.map": "/birra-edits/static/js/main.dc9bae01.js.map",
+    "main.4a9072a1.css.map": "/birra-edits/static/css/main.4a9072a1.css.map",
+    "main.5eafbe6b.js.map": "/birra-edits/static/js/main.5eafbe6b.js.map",
     "787.1efaf8c7.chunk.js.map": "/birra-edits/static/js/787.1efaf8c7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.46922de7.css",
-    "static/js/main.dc9bae01.js"
+    "static/css/main.4a9072a1.css",
+    "static/js/main.5eafbe6b.js"
   ]
 }
