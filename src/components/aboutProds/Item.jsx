@@ -1,24 +1,19 @@
 import React from 'react';
-import ItemCount from './ItemCount'
-import { Link, NavLink } from 'react-router-dom';
+// import ItemCount from './ItemCount'
+import { NavLink } from 'react-router-dom';
 
 
 const Item = ({ name, graduation, price, img, stock, categorys, id }) => {
-
-    const onAdd = (cantidad) => {
-        console.log(`Seleccionaste` + cantidad + `productos`)
-    }
 
     
     return (
         <>
             <div className="card h-max sm:w-4/5 items-center md:w-4/5 flex align-middle self-center bg-zinc-200 opacity-70 rounded-sm rounded-b-md mt-32">
-                <div className=" rounded-t-xl rounded-b-sm text-center  align-center flex flex-col justify-between">
+                <div className="mx-4 my-6 rounded-t-xl rounded-b-sm text-center  align-center flex flex-col justify-between">
                     <div className='grid grid-cols-2 '>
                         <img src={img} alt={name} className="rounded-t-lg w-full self-center opacity-100" />
                         <p className="font-bold opacity-50 p-2 text-xs text-grey-700  self-center">Alcohol content: {graduation} </p>
                     </div>
-                    <p className="font-bold py-5 pb-2 overline text-gray-900 "> {name}</p>
 
                     <NavLink className='flex justify-center' to={`/detail/${parseInt(id)}`}>
                         <button className='flex font-xs opacity-50 hover:-translate-y-0.5 text-black py-2 hover:opacity-80 transition duration-300 w-max self-center'>Detail <span className='flex self-center px-1'><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -28,10 +23,11 @@ const Item = ({ name, graduation, price, img, stock, categorys, id }) => {
                         </span>
                         </button>
                     </NavLink>
+                    <p className="font-extrabold py-5 pb-2 overline text-orange-400 opacity-70"> {name}</p>
 
                     {/* <p className="px-6 py-2 mb-5 text-gray-500 "> {description} </p> */}
                     <p className="font-extrabold p-2 text-md text-gray-700"> {price} </p>
-                    <ItemCount key={id} initial={1} stock={stock} onAdd={onAdd} />
+                    {/* <ItemCount key={id} initial={1} stock={stock} onAdd={onAdd} /> */}
                 </div>
             </div>
         </>

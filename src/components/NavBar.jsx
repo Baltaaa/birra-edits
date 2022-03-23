@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../img/logo.png'
 // import $ from 'jquery';
-import Cart from './cart/Cart.jsx'
+import CartSlider from './cart/CartSlider.jsx'
 
 
 
@@ -26,7 +26,7 @@ const NavBar = () => {
 
                 {/* <NavLink to='cart'>
             </NavLink> */}
-                <Cart />
+                <CartSlider />
 
 
             </nav>
