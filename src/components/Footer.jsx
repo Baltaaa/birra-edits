@@ -1,8 +1,9 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const Footer = () => {
     return (
-        <footer className='w-screen h-max sticky mb-0 mt-3 pb-0 bottom-0'>
+        <motion.footer transition={{duration: 5}} animate={{opacity: 1}} className='w-screen h-max sticky mb-0 mt-3 pb-0 bottom-0 opacity-0'>
             <div className='text-xs mb-2  w-screen justify-center  flex flex-row  flex-1'>
                 <div >
                     <a href='https://www.linkedin.com/in/baltasar-bruschetti-a567a421a/' target='_blank' className='flex items-center font-semibold text-opacity-100 text-gray-500 hover:text-blue-400 transition duration-200 ease-linear tracking-wide'>
@@ -18,7 +19,7 @@ const Footer = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg></span></p>
             </div>
-        </footer>
+        </motion.footer>
     )
 }
 

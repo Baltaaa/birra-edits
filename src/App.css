@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-.card{
-  -webkit-box-shadow: 0 8px 6px -6px whitesmoke;
-  -moz-box-shadow: 0 8px 6px -6px gray;
-  box-shadow: 20px -10px 8px 0px gray;
+html {
+  background-color: #252520;
 }
 
+.card {
+  box-shadow: 0px 8px 8px #474747;
+}
+/* rgb(0 0 0/ 22%) */
 @media (max-width: 768px) {
 *::-webkit-scrollbar{
   display: none;
@@ -26,6 +28,7 @@
   border-radius:1em;
   background-color: darkgrey;
 }
+
 .App {
   text-align: center;
 }

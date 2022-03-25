@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import  getData  from '../../helpers/getData';
 import ItemDetail from './ItemDetail';
-import loader from './../../img/loader.svg';
+import loader from '../../img/loader.svg'
 import { useParams } from 'react-router-dom'
 
 // LOADING ACA TAMBIEN
@@ -27,7 +27,7 @@ const ItemDetailContainer = () => {
       {
         loading
           ?
-          <div className='grid place-content-center fixed w-screen h-screen'>
+          <div className='grid place-content-center w-screen h-screen'>
             <img src={loader} alt='Cargando...' />
           </div>
           :

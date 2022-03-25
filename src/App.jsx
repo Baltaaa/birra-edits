@@ -16,9 +16,9 @@ function App() {
     
     <CartContextProvider >
 
-    <BrowserRouter className='flex justify-around' >
+    <BrowserRouter >
 
-    <div className="App bg-black bg-gradient-to-b  h-max w-screen">
+    <div style={{backgroundColor: '#252520', direction: 'ltr'}} className="App  bg-gradient-to-b  h-max w-screen overflow-y-auto relative ">
       <NavBar />
       
       <Routes >
