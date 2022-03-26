@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
-import shoppingCart from '../icons/ShoppingCart';
+// import shoppingCart from '../icons/shoppingCart';
 
 
 const ItemCount = ({ initial, stock, onAdd, count }) => {
@@ -56,7 +56,7 @@ const ItemCount = ({ initial, stock, onAdd, count }) => {
               <b className='self-center text-orange-300 tracking-widest pr-3'>{updateCount} Added</b>
               <NavLink to='/cart' className='w-max h-max' >
                 <motion.div transition={{ duration: 0.2 }} whileHover={{ opacity: 0.5 }} className='self-center py-1 overflow-y-hidden px-2'>
-                  {shoppingCart('white', '1.5em')}
+                  {/* {shoppingCart('white', '1.5em')} */}
                 </motion.div>
               </NavLink>
             </div>

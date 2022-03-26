@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
-import CartWidget from '../CartWidget';
+import CartWidget from '../CartWidget.jsx';
 import { useCartContext } from '../../context/cartContext';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion'
@@ -54,7 +54,6 @@ export default function CartSlider() {
                                             <div className="flex items-center justify-evenly">
                                         <motion.aside 
                                         whileDrag={{ transformX: -100 }}
-                                        
                                          className='w-max grid place-content-center  bg-opacity-60  justify-center' style={{zIndex:1}} >
                                             <button onClick={clearCart} className=' self-center items-center w-full h-max grid place-content-center'><div  >
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="white" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -89,20 +88,11 @@ export default function CartSlider() {
                                                     <ul className="-my-6 divide-y overflow-y-hidden divide-gray-200">
                                                         {cartList.map(prods => (
                                                             <motion.li
-                                                                // drag='x'
-                                                                // dragConstraints={{
-                                                                //     left: 20,
-                                                                //     right: 0
-
-                                                                // }}
-                                                                // whileHover={{ scale: 1,  }}
-                                                                // whileTap={{ zIndex: 99,scale: 0.9, cursor: "grabbing", backgroundColor: 'rgb(252 165 165)', backgroundRepeat: 'no-repeat', opacity: 0.4  }}
-                                                                // dragElastic={0.4}
-                                                                // dragTransition={{  bounceDamping: 20, bounceStiffness: 1000 }}
-
-                                                                // dragDirectionLock={true}
-                                                                // dragMomentum={true}
-                                                                // dragElastic={0.2}
+                                                                whileHover={{ scale: 0.9,  }}
+                                                                whileTap={{ zIndex: 99,scale: 0.9, cursor: "pointer", backgroundColor: 'rgb(251 146 60)', backgroundRepeat: 'no-repeat', opacity: 0.4  }}
+                                                                dragDirectionLock={false}
+                                                                dragMomentum={true}
+                                                                
                                                                 key={prods.id}
                                                                 className="flex py-6 h-max hover:cursor-pointer rounded-xl">
                                                                 <div className="h-max w-24 flex-shrink-0 overflow-hidden">

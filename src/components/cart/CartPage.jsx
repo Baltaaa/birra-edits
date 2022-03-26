@@ -11,15 +11,15 @@ const CartPage = () => {
 
   if (cartList.length === 0) {
     return (
-      
-        <section className='h-[80vh] grid place-content-center justify-around gap-5'>
-          <h3 className='text-white'>Cart empty</h3>
-          <NavLink to='/'><motion.button 
-          transition={{duration: 3, ease: 'easeInOut'}}
-          whileHover={{color: 'orange'}}
+
+      <section className='h-[80vh] grid place-content-center justify-around gap-5'>
+        <h3 className='text-white'>Cart empty</h3>
+        <NavLink to='/'><motion.button
+          transition={{ duration: 3, ease: 'easeInOut' }}
+          whileHover={{ color: 'orange' }}
           className='text-white font-bold text-lg'>Show products</motion.button></NavLink>
-        </section>
-      
+      </section>
+
     )
   } else {
     return (
@@ -59,6 +59,16 @@ const CartPage = () => {
             <p className='text-black'>Payment</p>
           </motion.button>
         </NavLink>
+
+        <motion.aside
+          whileDrag={{ transformX: -100 }}
+          className='w-max flex w-full bg-opacity-60  justify-center' style={{ zIndex: 1 }} >
+          <button onClick={clearCart} className=' self-center items-center w-full h-max grid place-content-center'><div  >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="white" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </div></button>
+        </motion.aside>
       </>
 
     )

@@ -7,7 +7,7 @@ html {
 }
 
 .card {
-  box-shadow: 0px 8px 8px #474747;
+  box-shadow: 6px 8px 8px  #332f2f;
 }
 /* rgb(0 0 0/ 22%) */
 @media (max-width: 768px) {

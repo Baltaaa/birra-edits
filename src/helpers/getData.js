@@ -1,12 +1,12 @@
 export const productos = [
     {
         "id": '1',
-        "name": "DAMM INEDIT",
+        "name": "Patagonia Bohemian Pilsener",
         "description": "Created by the Damm brewers together with Ferrán Adriá and the El Bulli sommeliers, it is made with a mixture of barley and wheat malt flavored with coriander, orange peel and liquorice.",
         "graduation": "4,8º",
         "pack": "75cl Bottle",
         "price": 3.90,
-        "img": 'https://i.ibb.co/tzwTk9r/damminnedit-Rubia.png',
+        "img": 'https://i.ibb.co/xsKB78K/patagonia-Pilsener.png',
         "stock": '3',
         "categorys": 
             "golden"
@@ -15,12 +15,12 @@ export const productos = [
     },
     {
         "id": '2',
-        "name": "ALHAMBRA 1925",
+        "name": "Patagonia Vera IPA",
         "description": "With its characteristic green color, it is an extra beer with a graduation of 6.8º. It is distinguished by its peculiar caramel touch and its perfect and refreshing final bitterness. Great body and great balance.",
         "graduation": "6,8º",
         "pack": "33cl Bottle",
         "price": 1,
-        "img": 'https://i.ibb.co/bKN0Dzs/alhambra-Rubia-Roja.png',
+        "img": 'https://i.ibb.co/ypYTCCk/patagonia-Vera-Ipa.png',
         "stock": '2',
         "categorys": 
             "golden"
@@ -33,7 +33,7 @@ export const productos = [
         "description": "True classic among our beers. Very light and pleasant, it is especially refreshing. With a slight acidity, toasted barley flavor and a correct final bitterness.",
         "graduation": "5,5º",
         "pack": "25cl Bottle",
-        "price": 2.70,
+        "price": 2,
         "img": 'https://i.ibb.co/SJrJ1mj/mahou-Rubia.png',
         "stock": '8',
         "categorys": 
@@ -118,6 +118,20 @@ export const productos = [
         "pack": "33cl Bottle",
         "price": 1.50,
         "img": 'https://i.ibb.co/Jv4Tv9S/barbante-Roja.png',
+        "stock": '2',
+        "categorys": 
+            "red"
+
+        
+    },
+    {
+        "id": '10',
+        "name": "Patagonia Küne",
+        "description": "Made in Belgium using traditional methods, it can be considered Spanish as it is made by Madrid entrepreneurs for the national market. Of its varieties, this white wheat one stands out, light and soft.",
+        "graduation": "5º",
+        "pack": "17cl Can",
+        "price": 0.40,
+        "img": 'https://i.ibb.co/23dBw5B/patagonia-Lata.png',
         "stock": '2',
         "categorys": 
             "red"

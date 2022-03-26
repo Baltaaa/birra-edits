@@ -26,9 +26,9 @@ const NavBar = () => {
                     </NavLink>
                 </div>
                 <ul className='flex top-20 absolute md:top-0  h-max w-screen lg:sticky lg:w-9/12 justify-center items-center mx-auto ml-4 gap-10'>
-                    <NavLink to='/categorys/black' className='tracking-wide hover:-translate-y-1  text-end lg:relative absolute block p-2 font-serif text-md md:text-md hover:rounded-lg hover:text-orange-200 transition ease-in-out duration-400'><li className='w-max'>Black Beer</li></NavLink>
-                    <NavLink to='/categorys/golden' className='tracking-wide hover:-translate-y-1  text-end lg:relative absolute block p-2 font-serif text-md md:text-md hover:rounded-lg hover:text-orange-200 transition ease-in-out duration-400'><li className='w-max'>Golden Beer</li></NavLink>
-                    <NavLink to='/categorys/red' className='tracking-wide hover:-translate-y-1  text-end lg:relative absolute block p-2 font-serif text-md md:text-md hover:rounded-lg hover:text-orange-200 transition ease-in-out duration-400'><li className='w-max'>Red Beer</li></NavLink>
+                    <NavLink to='/categorys/black' className='tracking-wide  lg:relative absolute block p-2 font-serif text-md md:text-lg hover:rounded-lg hover:text-orange-200 transition ease-in-out duration-400'><li className='w-max'>Black Beer</li></NavLink>
+                    <NavLink to='/categorys/golden' className='tracking-wide lg:relative absolute block p-2 font-serif text-md md:text-lg hover:rounded-lg hover:text-orange-200 transition ease-in-out duration-400'><li className='w-max'>Golden Beer</li></NavLink>
+                    <NavLink to='/categorys/red' className='tracking-wide   lg:relative absolute block p-2 font-serif text-md md:text-lg hover:rounded-lg hover:text-orange-200 transition ease-in-out duration-400'><li className='w-max'>Red Beer</li></NavLink>
                 </ul>
 
                 {/* <NavLink to='cart'>
