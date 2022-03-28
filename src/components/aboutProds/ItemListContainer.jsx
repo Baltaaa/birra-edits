@@ -5,6 +5,9 @@ import loader from '../../img/loader.svg'
 import { useParams } from 'react-router-dom';
 
 
+import { collection, doc, getDoc, getDocs, getFirestore, limit, query, where } from "firebase/firestore"
+
+
 
 const ItemListContainer = () => {
     const [items, setItems] = useState([]);
@@ -12,27 +15,29 @@ const ItemListContainer = () => {
 
     const { categorysId } = useParams();
 
-    useEffect(() => {
-        
-        if (categorysId) {
-            setTimeout(
-                getData()
-            .then(res =>
-                setItems(res.filter(prod => prod.categorys === categorysId))
-                ), 100)
 
+    useEffect(() => {
+        const db = getFirestore()
+        if (categorysId) {
+            const queryColection = collection(db, 'items')
+            const queryFilter = query(queryColection, where('category', '==', categorysId))
+            getDocs(queryFilter)
+                .then(resp => setItems(resp.docs.map(item => ({ id: item.id, ...item.data() }))))
+                .catch(err => console.log(err))
+                .finally(() => setLoading(false))
         } else {
-            setLoading(true)
-            getData()
-                .then(res =>
-                    setItems(res)
-                )
-                .finally(() => {
-                    setLoading(false)
-                })
+            const queryColection = collection(db, 'items')
+            getDocs(queryColection)
+                .then(resp => setItems(resp.docs.map(item => ({ id: item.id, ...item.data() }))))
+                .catch(err => console.log(err))
+                .finally(() => setLoading(false))
         }
 
     }, [categorysId])
+
+
+
+
 
 
     return (

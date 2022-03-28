@@ -34,11 +34,11 @@ const CartContextProvider = ({ children }) => {
   }
 
   const totalCart = () => {
-    let value = cartList.reduce((subTotal, item) => subTotal = subTotal + item.price * item.quantity, 0)
-    return value;
+    let value = cartList.reduce((total, item) => total = total + item.price * item.quantity, 0)
+    return value.toFixed(2);
   }
   const totalItem = () => {
-    let value = cartList.reduce((subTotalItem, item) => subTotalItem = subTotalItem + item.quantity, 0)
+    let value = cartList.reduce((totalItem, item) => totalItem = totalItem + item.quantity, 0)
     return value;
   }
 

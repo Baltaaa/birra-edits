@@ -27,7 +27,7 @@ const ItemDetail = ({ prod }) => {
 
   return (
 
-    <motion.section animate={{ display: ['none', 'visible'] }} transition={{ duration: 3 }} className='flex-col' style={{ height: '80vh' }}>
+    <motion.section animate={{ display: ['none', 'flex'] }} transition={{ duration: 3 }} className='flex-col' style={{ height: '80vh' }}>
       <div className='h-max '>
         <p className='text-xl text-orange-300 text-center w-screen'>{prod.name}</p>
       </div>

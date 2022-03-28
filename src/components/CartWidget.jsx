@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import shoppingCart from '../icons/shoppingCart';
-import cartCheck from '../img/cartCheck.png'
 import { motion } from 'framer-motion';
 import { useCartContext } from '../context/cartContext';
 

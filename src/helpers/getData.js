@@ -51,8 +51,6 @@ export const productos = [
         "stock": '8',
         "categorys": 
             "golden"
-
-        
     },
     {
         "id": '5',
