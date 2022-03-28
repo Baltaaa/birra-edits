@@ -26,10 +26,10 @@ const CartPage = () => {
     return (
       < >
 
-        <section className='overflow-y-hidden flex' >
-          <div style={{ direction: 'rtl', height: '75vh' }} className='border-r mt-3 border-opacity-40 border-r-white text-white gap-6 flex-col flex justify-around items-center w-4/6'>
+        <section className='overflow-y-hidden flex my-3' >
+          <div style={{ direction: 'rtl', height: '75vh' }} className='border-r border-opacity-40 border-r-white text-white gap-6 flex-col flex justify-around items-center w-4/6'>
             <table  className='table-fixed w-full overflow-y-auto my-10 '>
-              <thead className='-mt-10'>
+              <thead className=''>
                 <tr className='text-orange-300'>
                   <th style={{width:'15rem'}}></th>
                   <th style={{ width: '13rem' , height: '-1' }} >Quantity</th>
@@ -41,7 +41,7 @@ const CartPage = () => {
               {cartList.map(item =>
 
                 <tbody className=''>
-                  <tr className=''>
+                  <tr className='divide-y divide-orange-300 gap-2 divide-opacity-30'>
                     <td>
                       <motion.button onClick={() => clearItem(item.id)} type="button" className="font-xs text-slate-700 transition duration-200 ease-linear hover:-inset-y-2 hover:text-red-600">
                         Remove
@@ -49,7 +49,7 @@ const CartPage = () => {
                     </td>
                     <td>{totalItem()}</td>
                     <td>€ {item.price}</td>
-                    <td className='flex flex-row-reverse text-zinc-100 gap-10'><img alt={item.name} src={item.img} className='w-[6rem] pointer-events-none min-w-[50%]' /><b className='text-sm flex items-center'>{item.name}</b></td>
+                    <td className='flex flex-row-reverse text-zinc-100 gap-2'><img alt={item.name} src={item.img} className='w-[6rem] pointer-events-none min-w-[50%]' /><b className='text-sm flex items-center'>{item.name}</b></td>
                   </tr>
                 </tbody>
               )}
