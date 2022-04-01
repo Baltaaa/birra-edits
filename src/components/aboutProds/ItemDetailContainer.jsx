@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import  getData  from '../../helpers/getData';
 import ItemDetail from './ItemDetail';
 import loader from '../../img/loader.svg'
 import { useParams } from 'react-router-dom'
@@ -21,7 +20,6 @@ const ItemDetailContainer = () => {
     .then(resp => setProd( { id: resp.id, ...resp.data() } ))
     .catch(err => console.log(err))
     .finally(() =>setLoading(false))
-    // .then(resp => console.log(resp))
 },[])
 
 

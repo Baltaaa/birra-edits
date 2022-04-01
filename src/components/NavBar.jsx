@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom'
 import logo from '../img/logo.svg'
 import CartSlider from './cart/CartSlider.jsx'
 import { motion } from 'framer-motion'
-// import { useCartContext } from '../context/cartContext'
 
 
 

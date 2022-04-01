@@ -5,7 +5,6 @@ import CartWidget from '../CartWidget.jsx';
 import { useCartContext } from '../../context/cartContext';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion'
-// import { useDragControls } from 'framer-motion';
 
 
 export default function CartSlider() {
@@ -18,7 +17,6 @@ export default function CartSlider() {
 
     return (
         <>
-            {console.log(cartList)}
             <div className='absolute right-5 top-3 overflow-y-hidden'>
                 <CartWidget onClick={() => setOpen(true)} />
             </div>
@@ -61,13 +59,6 @@ export default function CartSlider() {
                                                         </svg>
                                                     </div></button>
                                                 </motion.aside>
-                                                {/* <div>
-                                                    <motion.button whileHover={{ scale: 1.1 }} transition={{ duration: 0.3 }} onClick={clearCart} >
-                                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                        </svg>
-                                                    </motion.button>
-                                                </div> */}
 
                                                 <Dialog.Title className="text-lg tracking-widest font-xs uppercase w-4/5 text-gray-900 flex justify-center items-center">Cart</Dialog.Title>
 
@@ -85,7 +76,7 @@ export default function CartSlider() {
 
                                             <div className="mt-8">
                                                 <div className="flow-root overflow-y-hidden">
-                                                    <ul className="-my-6 divide-y overflow-y-hidden divide-gray-200">
+                                                    <ul className="-my-6 overflow-y-hidden ">
                                                         {cartList.map(prods => (
                                                             <motion.li
                                                                 whileHover={{ scale: 0.9, }}
@@ -117,8 +108,8 @@ export default function CartSlider() {
                                                                     </div>
                                                                     <div className="flex flex-1 items-end justify-between text-sm">
 
-                                                                        <NavLink to={`/detail/${prods.id}`}>
-                                                                            <button onClick={() => setOpen(false)} className='flex font-xs opacity-50 hover:-translate-y-0.5 text-slate-300 py-2 hover:opacity-80 transition duration-300 w-max self-center'>Detail <span className='flex self-center px-1'><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                                        <NavLink onClick={() => setOpen(false)} to={`/detail/${prods.id}`}>
+                                                                            <button className='flex font-xs opacity-50 hover:-translate-y-0.5 text-slate-300 py-2 hover:opacity-80 transition duration-300 w-max self-center'>Detail <span className='flex self-center px-1'><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                                                                 <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
                                                                                 <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
                                                                             </svg>

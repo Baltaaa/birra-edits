@@ -1,17 +1,13 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
-// import shoppingCart from '../icons/shoppingCart';
+
 
 
 const ItemCount = ({ initial, stock, onAdd, count }) => {
   const [updateCount, setCount] = useState(initial);
-  // const [countCart, setCountCart] = useState(null)
 
   const [check, setcheck] = useState(false)
-
-  // const [click, setclick] = useState({})
-
 
 
   const clickMas = () => {
@@ -32,7 +28,6 @@ const ItemCount = ({ initial, stock, onAdd, count }) => {
   }
 
   const addToCart = () => {
-    // setCountCart(updateCount)
     onAdd(updateCount)
     setCount(updateCount)
     setcheck(true)

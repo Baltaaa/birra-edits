@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList'
-import getData from '../../helpers/getData';
 import loader from '../../img/loader.svg'
 import { useParams } from 'react-router-dom';
 
 
-import { collection, doc, getDoc, getDocs, getFirestore, limit, query, where } from "firebase/firestore"
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
 
 
 
 const ItemListContainer = () => {
     const [items, setItems] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const { categorysId } = useParams();
 
