@@ -8,6 +8,7 @@ export const useCartContext = () => useContext(CartContext)
 
 const CartContextProvider = ({ children }) => {
   const [cartList, setcartList] = useState([])
+  const [orderId, setorderId] = useState(null)
 
   // const [totalItemView, setTotalItemView] = useState(0)
 
@@ -15,6 +16,7 @@ const CartContextProvider = ({ children }) => {
     return cartList.some(i => i.id === id)
   }
 
+  
 
   const addToCart = (item) => {
     if (isInCart(item.id)) {
@@ -46,12 +48,14 @@ const CartContextProvider = ({ children }) => {
   return (
     <CartContext.Provider value={{
       cartList,
+      orderId,
       addToCart,
       clearCart,
       clearItem,
       totalItem,
       totalCart,
-      isInCart
+      isInCart,
+      setorderId
     }} >
       {children}
     </CartContext.Provider>

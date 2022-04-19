@@ -16,7 +16,7 @@ const CartWidget = ({ onClick }) => {
        :
       <p className='grid place-content-center w-5 text-xl font-extrabold h-13'>{totalItem()}</p>
       }
-      <motion.button whileHover={{ scale: 1.1 }} transition={{ duration: 0.3 }} onClick={onClick} className='w-max h-full  p-1 flex self-center rounded-full'>
+      <motion.button whileHover={{ scale: 1.1 }} transition={{ duration: 0.3 }} onClick={onClick} className='w-max h-full md:px-4 p-1 flex self-center rounded-full'>
         <span>{shoppingCart('black', '3em')}</span>
       </motion.button>
     </div>

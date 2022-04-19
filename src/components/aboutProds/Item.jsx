@@ -10,8 +10,8 @@ const Item = ({ name, graduation, price, img, stock, categorys, id }) => {
     
     return (
         <motion.div animate={{ marginBottom: '0rem', marginTop: '-5rem'}} transition={{ type:'tween' , duration: 0.3 }} style={{ marginBottom: '-18rem' }}>
-            <motion.div whileHover={{ opacity: 1.5, y: -7 }} transition={{duration: 0.2, ease: 'easeIn'}} className="card m-2 h-max sm:w-4/5 items-center md:w-4/5 flex align-middle self-center bg-zinc-700 opacity-70 rounded-sm rounded-b-md mt-32">
-                <div className="mx-4 my-6 text-center  align-center flex flex-col justify-between">
+            <motion.div whileHover={{ opacity: 1.5, y: -7 }} transition={{duration: 0.2, ease: 'easeIn'}} className="card m-6 h-max sm:w-4/5 items-center md:w-4/5 flex self-center bg-zinc-700 opacity-70 rounded-sm rounded-b-md mt-32">
+                <div className="mx-4 my-6 text-center flex flex-col justify-between">
                     <div className='grid grid-cols-2 '>
                         <img style={{pointerEvents: 'none'}} src={img} alt={name} className="rounded-t-lg w-full self-center opacity-100" />
                         <p className="font-bold opacity-50 p-2 text-xs text-grey-700  self-center">Alcohol content: {graduation} </p>

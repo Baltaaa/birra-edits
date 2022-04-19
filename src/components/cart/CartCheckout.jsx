@@ -1,38 +1,45 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { NavLink } from 'react-router-dom'
 import { useCartContext } from '../../context/cartContext'
 import {
     addDoc,
     collection,
-    doc,
     documentId,
     getDocs,
     getFirestore,
     query,
-    updateDoc,
+    Timestamp,
     where,
     writeBatch
 } from "firebase/firestore"
+import { useForm } from "react-hook-form";
 // import OrderId from './OrderId'
+import { useNavigate } from 'react-router-dom';
 
 
 const CartCheckout = () => {
+    const navigate = useNavigate();
 
-    const [orderId, setorderId] = useState(null)
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        getOrder(data);
+        console.log(data)
+        navigate(`/order`);
+    }
+
     const [dataForm, setDataForm] = useState({
         email: '', name: '', phone: ''
     })
 
 
-    const { cartList, clearCart, totalCart } = useCartContext()
+    const { cartList, totalCart, setorderId } = useCartContext()
 
 
     // oder
-    const getOrder = async (e) => {
-        e.preventDefault()
+    const getOrder = async () => {
+        // e.preventDefault()
         let order = {};
-
+        order.date = Timestamp.fromDate(new Date());
         order.buyer = dataForm
         order.total = totalCart();
         order.items = cartList.map(i => {
@@ -49,7 +56,7 @@ const CartCheckout = () => {
         addDoc(queryCollection, order)
             .then(res => setorderId(res.id))
             .catch(err => console.log(err))
-            .finally(() => console.log('Operation Finish'))
+            .finally(() => console.log('Process finished.'))
 
 
         const queryUpdateStock = await query(
@@ -64,15 +71,6 @@ const CartCheckout = () => {
                 stock: res.data().stock - cartList.find(item => item.id === res.id).quantity
             })))
         batch.commit()
-
-        console.log('------------------------------------');
-        console.log(order);
-        console.log('------------------------------------');
-
-        // ESTO NO FUNCA IVAN, NOSE PQ NO ME GENERA LA ID SI ESTA BIEN TRAIDA EN EL THEN FIJATE CON UN CONSOLE LOG! SE VE Q NO ME LA SETEA BIEN EN EL ESTADO.
-        console.log(orderId)
-
-
     }
 
 
@@ -86,56 +84,118 @@ const CartCheckout = () => {
 
 
     return (
-        <section style={{ height: '70vh' }} className='w-2/6 mx-5 flex items-center' >
+        <section style={{ height: '80vh', width: '60vw' }} className='sm:h-[50vh] md:w-full self-start my-5 lg:w-2/6 mx-5 flex flex-col overflow-y-hidden border-l border-opacity-40 border-l-black' >
+            <h1 className='my-4 text-lg text-center text-orange-200 font-extralight'>
+                Complete to take the order:</h1>
             <form
-                onSubmit={getOrder}
-                className="grid place-content-center h-max w-max self-end gap-20">
-                <div>
-                    <div className="flex flex-wrap -mx-3">
-                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                            <label className="block uppercase tracking-wide text-gray-700 text-1xl text-center font-bold mb-2"
+                onSubmit={handleSubmit(onSubmit)}
+                className="grid place-content-center h-max w-full gap-20 mx-5">
+                <div className='overflow-y-hidden'>
+                    <div className="flex flex-wrap lg:-mx-3 self-center ">
+                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 flex flex-col">
+                            <label className="block uppercase tracking-wide text-orange-300 text-1xl text-center font-bold mb-2"
                             >
                                 NAME
                             </label>
                             <input
+                                type="text"
+                                {...register("name", {
+                                    required: "This field is required",
+                                    minLength: {
+                                        value: 4,
+                                        message: 'Enter a valid name'
+                                    },
+                                    maxLength: {
+                                        value: 14,
+                                        message: 'Enter a valid name'
+                                    },
+                                })}
                                 value={dataForm.name}
                                 onChange={handleChange}
-                                className="h-10  name:text-center w-full focus:placeholder:text-transparent self-center ease-in duration-200  rounded-full focus:bg-gray-800 block bg-neutral-400/50 text-white shadow-xl px-4 placeholder:text-slate-600 placeholder:text-center"
-                                name='name' type="text" placeholder="Write your name" />
+                                className="h-10 mx-1 name:text-center w-11/12 focus:placeholder:text-transparent self-center ease-in duration-200  rounded-full focus:bg-gray-800 block bg-neutral-400/50 text-white shadow-xl px-4 placeholder:text-slate-600 placeholder:text-center"
+                                name='name' placeholder="Write your name" />
+                                {errors.name && <span className='text-red-800'>{errors.name.message}</span>}
                         </div>
-                        <div className="w-full md:w-1/2 px-3">
-                            <label className="block text-center uppercase tracking-wide text-gray-700 text-1xl font-bold mb-2"
+                        <div className="w-full md:w-1/2 px-3 flex flex-col">
+                            <label className="block text-center uppercase tracking-wide text-orange-300 text-1xl font-bold mb-2"
                             >
                                 PHONE
                             </label>
                             <input
+                                {...register("phone", {
+                                    required: "This field is required",
+                                    minLength: {
+                                        value: 9,
+                                        message: 'Enter a valid number'
+                                    },
+                                    maxLength: {
+                                        value: 11,
+                                        message: 'Enter a valid number'
+                                    },
+                                })}
                                 value={dataForm.phone}
                                 onChange={handleChange}
-                                className="h-10  name:text-center w-full focus:placeholder:text-transparent self-center ease-in duration-200  rounded-full focus:bg-gray-800 block bg-neutral-400/50 text-white shadow-xl px-4 placeholder:text-slate-600 placeholder:text-center"
-                                name='phone' type="number" placeholder="Write your phone" />
+                                className="h-10 pr-2 name:text-center w-11/12 focus:placeholder:text-transparent self-center ease-in duration-200  rounded-full focus:bg-gray-800 block bg-neutral-400/50 text-white shadow-xl px-4 placeholder:text-slate-600 placeholder:text-center"
+                                name='phone' type="text" placeholder="Write your phone" />
+                            {errors.phone && <span className='text-red-800'>{errors.phone.message}</span>}
                         </div>
                     </div>
                     <div className="flex flex-wrap -mx-3 mt-6 mb-6">
-                        <div className="w-full px-3">
-                            <label className="block uppercase tracking-wide text-center text-gray-700 text-1xl font-bold mb-2"
+                        <div className="w-full px-3 flex flex-col">
+                            <label className="block uppercase tracking-wide text-center text-orange-300 text-1xl font-bold mb-2"
                             >
                                 EMAIL
                             </label>
                             <input
                                 value={dataForm.email}
                                 onChange={handleChange}
-                                className="h-10  name:text-center w-full focus:placeholder:text-transparent self-center ease-in duration-200  rounded-full focus:bg-gray-800 block bg-neutral-400/50 text-white shadow-xl px-4 placeholder:text-slate-600 placeholder:text-center"
+                                type='email'
+                                {...register("email", {
+                                    required: 'Complete',
+                                    pattern: {
+                                        value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                        message: "Enter a valid email"
+                                    }
+                                })}
+                                className="h-10 mx-1 name:text-center w-[15rem] focus:placeholder:text-transparent self-center ease-in duration-200  rounded-full focus:bg-gray-800  bg-neutral-400/50 text-white shadow-xl px-4 placeholder:text-slate-600 placeholder:text-center"
+                                name='email' placeholder="examplemail@yahoo.com.ar" />
+                            {errors.email && <span className='text-red-800'>{errors.email.message}</span>}
+                        </div>
+                    </div>
+                    <div className="flex flex-wrap -mx-3 mt-6 mb-6">
+                        <div className="w-full px-3 flex flex-col">
+                            <label className="block uppercase tracking-wide text-center text-orange-300 text-1xl font-bold mb-2"
+                            >
+                                CONFIRM EMAIL
+                            </label>
+                            <input
+                                value={dataForm.email}
+                                onChange={handleChange}
+                                {...register("email", {
+                                    required: {
+                                        value: true,
+                                        message: "Complete"
+                                    },
+                                    pattern: {
+                                        value:
+                                            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                        message: "Enter a valid email"
+                                    }
+                                })}
+                                className="h-10 mx-1 name:text-center w-[15rem] focus:placeholder:text-transparent self-center ease-in duration-200  rounded-full focus:bg-gray-800  bg-neutral-400/50 text-white shadow-xl px-4 placeholder:text-slate-600 placeholder:text-center"
                                 name='email' type="email" placeholder="examplemail@yahoo.com.ar" />
+                                {errors.email && <span className='text-red-800'>{errors.email.message}</span>}
                         </div>
                     </div>
                 </div>
-                <aside className='flex justify-end'>
-                    <div className='flex gap-14 justify-around items-center h-max w-max'>
+                <aside className='flex justify-center mb-10 md:justify-end w-screen md:w-auto'>
+                    <div className='flex gap-5 md:gap-14 justify-around items-center h-max w-max' >
                         <motion.button
-                            whileHover={{ backgroundColor: 'orange' }}
-                            transition={{ duration: 3, ease: 'easeInOut' }}
-                            className=' bg-slate-300 rounded-xl p-2'>
-                            <p className='text-black'>Checkout</p>
+                            type='submit'
+                            whileHover={{ backgroundColor: '#FDBA74' }}
+                            transition={{ duration: 0.4, ease: 'easeInOut' }}
+                            className='bg-neutral-400/50 rounded-xl p-2'>
+                            <p className='text-black' >Checkout</p>
                         </motion.button>
                         <div>
                             <p className='text-white text-lg' >Total price: €  <b>{totalCart()}</b></p>
@@ -144,17 +204,6 @@ const CartCheckout = () => {
 
                 </aside>
             </form>
-
-
-            <motion.div
-                className='absolute bottom-0 left-52 w-full bg-opacity-60 justify-center h-max' style={{ zIndex: 1 }} >
-                <button onClick={clearCart} className='w-max self-center items-center h-max grid place-content-center'><div  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-9 w-9" fill="white" viewBox="0 0 24 24" stroke="black" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                    </svg>
-                </div></button>
-            </motion.div>
-
         </section>
     )
 }

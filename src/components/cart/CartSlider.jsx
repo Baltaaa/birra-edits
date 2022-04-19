@@ -17,7 +17,7 @@ export default function CartSlider() {
 
     return (
         <>
-            <div className='absolute right-5 top-3 overflow-y-hidden'>
+            <div className='md:absolute fixed right-2 top-1 lg:top-3 overflow-y-hidden'>
                 <CartWidget onClick={() => setOpen(true)} />
             </div>
             {/* onclick slide */}
@@ -36,7 +36,7 @@ export default function CartSlider() {
                             <Dialog.Overlay className="absolute inset-0 bg-gray-900 bg-opacity-90 ease-linear transition-opacity" />
                         </Transition.Child>
 
-                        <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                        <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full md:pl-10">
                             <Transition.Child
                                 as={Fragment}
                                 enter="transform transition ease-in-out duration-300 sm:duration-700"
@@ -46,10 +46,10 @@ export default function CartSlider() {
                                 leaveFrom="translate-x-0"
                                 leaveTo="translate-x-full"
                             >
-                                <div id='cart' className="pointer-events-auto w-screen max-w-md relative">
+                                <div id='cart' className="pointer-events-auto w-screen md:max-w-md relative">
                                     <div className="flex h-full flex-col overflow-y-hidden shadow-xl" style={{ backgroundColor: '#7A7A78' }} >
-                                        <div className="flex-1 overflow-y-auto scroll-m-0 py-6 px-20 sm:px-6">
-                                            <div className="flex items-center justify-evenly">
+                                        <div className="flex-1 overflow-y-auto scroll-m-0 py-6 px-4 lg:mx-15 sm:px-6">
+                                            <div className="flex items-center justify-between">
                                                 <motion.aside
                                                     whileDrag={{ transformX: -100 }}
                                                     className='w-max grid place-content-center  bg-opacity-60  justify-center' style={{ zIndex: 1 }} >
@@ -60,7 +60,7 @@ export default function CartSlider() {
                                                     </div></button>
                                                 </motion.aside>
 
-                                                <Dialog.Title className="text-lg tracking-widest font-xs uppercase w-4/5 text-gray-900 flex justify-center items-center">Cart</Dialog.Title>
+                                                <Dialog.Title className="text-lg tracking-widest font-xs uppercase w-max text-gray-900 flex justify-center items-center">Cart</Dialog.Title>
 
                                                 <div className="flex h-7 items-center overflow-y-hidden">
                                                     <button
@@ -69,37 +69,37 @@ export default function CartSlider() {
                                                         onClick={() => setOpen(false)}
                                                     >
                                                         <span className="sr-only"></span>
-                                                        <XIcon className="h-6 w-6" aria-hidden="true" />
+                                                        <XIcon className="h-4 w-4 md:h-6 md:w-6" aria-hidden="true" />
                                                     </button>
                                                 </div>
                                             </div>
 
-                                            <div className="mt-8">
+                                            <div className="md:mt-8">
                                                 <div className="flow-root overflow-y-hidden">
-                                                    <ul className="-my-6 overflow-y-hidden ">
+                                                    <ul className="md:-my-6 overflow-y-hidden">
                                                         {cartList.map(prods => (
                                                             <motion.li
-                                                                whileHover={{ scale: 0.9, }}
+                                                                whileHover={{ scale: 0.98, }}
                                                                 whileTap={{ zIndex: 99, scale: 0.9, cursor: "pointer", backgroundColor: 'rgb(251 146 60)', backgroundRepeat: 'no-repeat', opacity: 0.4 }}
                                                                 dragDirectionLock={false}
                                                                 dragMomentum={true}
 
                                                                 key={prods.id}
                                                                 className="flex py-6 h-max hover:cursor-pointer rounded-xl">
-                                                                <div className="h-max w-24 flex-shrink-0 overflow-hidden">
+                                                                <div className="h-max md:w-24 w-2/6 md:flex-shrink-0 overflow-hidden">
                                                                     <img
                                                                         style={{ pointerEvents: 'none' }}
                                                                         src={prods.img}
                                                                         alt={prods.name}
-                                                                        className="h-full w-full object-cover object-center"
+                                                                        className="md:h-full md:w-full object-cover object-center"
 
                                                                     />
                                                                 </div>
 
-                                                                <div className="ml-4 flex flex-1 flex-col">
+                                                                <div className="md:ml-4 flex flex-1 flex-col">
                                                                     <div>
-                                                                        <div className="flex justify-between text-base">
-                                                                            <h3 className='text-md tracking-tight text-orange-400 hover.font-bold transition ease-linear duration-150 '>
+                                                                        <div className="flex justify-between md:text-base w-max md:w-3/5">
+                                                                            <h3 className='text-sm md:text-md tracking-tight text-orange-400 hover:font-bold transition ease-linear duration-150 '>
                                                                                 {prods.name}
                                                                             </h3>
                                                                             <p className="text-black font-light mx-5">€{prods.price}</p>
@@ -131,13 +131,13 @@ export default function CartSlider() {
                                             </div>
                                         </div>
 
-                                        <div className="shadow-2xl rounded-t-xl shadow-black pb-6 px-4 sm:px-6">
-                                            <div className="flex justify-between text-base font-large my-2 text-gray-900">
+                                        <div className="shadow-2xl rounded-t-xl shadow-black pb-6 px-4 sm:px-0">
+                                            <div className="flex justify-between text-base font-large my-2 text-gray-900 mx-2">
                                                 <p>Subtotal:</p>
                                                 <p>€ {totalCart()}</p>
                                             </div>
 
-                                            <div className="mt-6">
+                                            <div className="mt-6 mx-2">
                                                 <NavLink
                                                     to="/cart"
                                                     onClick={() => setOpen(false)}

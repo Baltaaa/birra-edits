@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList'
 import loader from '../../img/loader.svg'
 import { useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import './container.css'
 
 
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
@@ -50,7 +52,16 @@ const ItemListContainer = () => {
                         <img src={loader} alt='Cargando...' />
                     </div>
                     :
-                    <ItemList items={items} />
+                    <>
+                        <div className='categoryList' >
+                            <ul className='md:flex top-20 absolute md:top-0 h-max w-screen lg:sticky lg:w-screen justify-center items-center mx-auto gap-10'>
+                                <NavLink to='/categorys/black' className='tracking-wide  lg:relative absolute block p-2 font-serif text-md md:text-xl hover:rounded-lg text-zinc-500 hover:text-orange-200 transition ease-in-out duration-400'><li className='w-max'>Black Beer</li></NavLink>
+                                <NavLink to='/categorys/golden' className='tracking-wide lg:relative absolute block p-2 font-serif text-md md:text-xl hover:rounded-lg text-zinc-500 hover:text-orange-200 transition ease-in-out duration-400'><li className='w-max'>Golden Beer</li></NavLink>
+                                <NavLink to='/categorys/red' className='tracking-wide   lg:relative absolute block p-2 font-serif text-md md:text-xl hover:rounded-lg text-zinc-500 hover:text-orange-200 transition ease-in-out duration-400'><li className='w-max'>Red Beer</li></NavLink>
+                            </ul>
+                        </div>
+                        <ItemList items={items} />
+                    </>
 
 
             }
